@@ -145,7 +145,6 @@ Create a .env.local file in the root of your project with the following variable
       AUTH_GOOGLE_ID=your-google-id
       AUTH_GOOGLE_SECRET=your-google-secret
 
-Replace your-supabase-url, your-supabase-anon-key, your-google-client-id, and your-google-client-secret with your actual Supabase and Google credentials.
 
 ## Usage
 
