@@ -62,85 +62,66 @@ Open http://localhost:3000 with your browser to see the result.
 
 You can start editing the page by modifying app/page.js. The page auto-updates as you edit the file.
 
-Supabase Setup
+## Supabase Setup
 
-To use Supabase as the backend for this project, you need to set up the database and authentication. Here are the steps to configure Supabase:
-1. Create a Supabase Account
+### Tables
 
-    Sign up at Supabase and create a new project.
+- **Bookings Table**: Stores booking information.
+  - `id`: `bigint` (Primary Key)
+  - `created_at`: `timestamp with time zone`
+  - `startDate`: `timestamp without time zone`
+  - `endDate`: `timestamp without time zone`
+  - `numNights`: `smallint`
+  - `numGuests`: `smallint`
+  - `cabinPrice`: `real`
+  - `extrasPrice`: `real`
+  - `totalPrice`: `real`
+  - `status`: `text`
+  - `hasBreakfast`: `boolean`
+  - `isPaid`: `boolean`
+  - `observations`: `text`
+  - `cabinId`: `bigint` (Foreign Key to Cabins)
+  - `guestId`: `bigint` (Foreign Key to Guests)
 
-2. Database Tables
+- **Cabins Table**: Stores information about the available cabins.
+  - `id`: `bigint` (Primary Key)
+  - `created_at`: `timestamp with time zone`
+  - `name`: `text`
+  - `maxCapacity`: `smallint`
+  - `regularPrice`: `smallint`
+  - `discount`: `smallint`
+  - `description`: `text`
+  - `image`: `text` (URL or path to the image)
 
-Set up the following tables in your Supabase project:
+- **Guests Table**: Stores information about guests.
+  - `id`: `bigint` (Primary Key)
+  - `created_at`: `timestamp with time zone`
+  - `fullName`: `text`
+  - `email`: `text`
+  - `nationalID`: `text`
+  - `nationality`: `text`
+  - `countryFlag`: `text` (URL or path to the flag image)
 
-    Bookings Table: Stores booking information.
-        id: bigint (Primary Key)
-        created_at: timestamp with time zone
-        startDate: timestamp without time zone
-        endDate: timestamp without time zone
-        numNights: smallint
-        numGuests: smallint
-        cabinPrice: real
-        extrasPrice: real
-        totalPrice: real
-        status: text
-        hasBreakfast: boolean
-        isPaid: boolean
-        observations: text
-        cabinId: bigint (Foreign Key to Cabins)
-        guestId: bigint (Foreign Key to Guests)
-   
-    Cabins Table: Stores information about the available cabins.
-        id: bigint (Primary Key)
-        created_at: timestamp with time zone
-        name: text
-        maxCapacity: smallint
-        regularPrice: smallint
-        discount: smallint
-        description: text
-        image: text (URL or path to the image)
-   
-    Guests Table: Stores information about guests.
-        id: bigint (Primary Key)
-        created_at: timestamp with time zone
-        fullName: text
-        email: text
-        nationalID: text
-        nationality: text
-        countryFlag: text (URL or path to the flag image)
-   
-    Settings Table: Stores application settings related to bookings.
-        id: bigint (Primary Key)
-        created_at: timestamp with time zone
-        minBookingLength: smallint
-        maxBookingLength: smallint
-        maxGuestsPerBooking: smallint
-        breakfastPrice: real
+- **Settings Table**: Stores application settings related to bookings.
+  - `id`: `bigint` (Primary Key)
+  - `created_at`: `timestamp with time zone`
+  - `minBookingLength`: `smallint`
+  - `maxBookingLength`: `smallint`
+  - `maxGuestsPerBooking`: `smallint`
+  - `breakfastPrice`: `real`
 
-3. Storage Buckets
+### Storage Buckets
 
-Create the following storage buckets in Supabase:
+- **avatars**: For storing user profile pictures.
+- **cabin-images**: For storing images of the cabins.
 
-    avatars: For storing user profile pictures.
-    cabin-images: For storing images of the cabins.
+### Authentication
 
-4. Authentication
+- Configure Supabase authentication to handle user sign-in.
 
-Supabase automatically creates a Users table when authentication is set up. This table includes:
+### Environment Variables
 
-    Display Name
-    Email
-    Phone
-    Provider
-    Created
-    Last Sign In
-    User UID
-
-Enable the desired authentication providers (e.g., Google) in the Supabase dashboard under the "Auth" section.
-
-5. Configure Environment Variables
-
-    Create a .env.local file in the root of your project with the following variables:
+Create a .env.local file in the root of your project with the following variables:
 
     ```bash 
     NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
@@ -150,16 +131,25 @@ Enable the desired authentication providers (e.g., Google) in the Supabase dashb
 
 Replace your-supabase-url, your-supabase-anon-key, your-google-client-id, and your-google-client-secret with your actual Supabase and Google credentials.
 
-Usage
+## Usage
 
-   Explore Cabins: Use the Cabin Gallery to browse available luxury cabins. Apply filters to find cabins that meet your needs based on the number of guests.
-   Booking: Select your desired dates and make a reservation directly through the website.
-   Account Management: Sign in using your Google account, and manage your bookings and personal profile through the Guest Area.
-   About: Visit the About Page to learn more about The Wild Oasis and its luxury offerings.
+- **Explore Cabins**: 
+  - Use the Cabin Gallery to browse available luxury cabins.
+  - Apply filters to find cabins that meet your needs based on the number of guests.
 
-Technologies Used
-   
-   Next.js: A React framework for server-side rendering and static site generation.
-   Tailwind CSS: A utility-first CSS framework for rapid UI development.
-   Supabase: An open-source Firebase alternative providing backend services like database and authentication.
-   Google Authentication: Secure and fast authentication using Google profiles.
+- **Booking**: 
+  - Select your desired dates and make a reservation directly through the website.
+
+- **Account Management**: 
+  - Sign in using your Google account.
+  - Manage your bookings and personal profile through the Guest Area.
+
+- **About**: 
+  - Visit the About Page to learn more about The Wild Oasis and its luxury offerings.
+
+## Technologies Used
+
+- **Next.js**: A React framework for server-side rendering and static site generation.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **Supabase**: An open-source Firebase alternative providing backend services like database and authentication.
+- **Google Authentication**: Secure and fast authentication using Google profiles.
