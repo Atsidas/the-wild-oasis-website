@@ -115,9 +115,25 @@ You can start editing the page by modifying app/page.js. The page auto-updates a
 - **avatars**: For storing user profile pictures.
 - **cabin-images**: For storing images of the cabins.
 
-### Authentication
+## Authentication
 
-- Configure Supabase authentication to handle user sign-in.
+Supabase automatically creates a `Users` table when authentication is set up. This table includes the following fields:
+
+- **Display Name**
+- **Email**
+- **Phone**
+- **Provider**
+- **Created**
+- **Last Sign In**
+- **User UID**
+
+### Setting Up Authentication Providers
+
+1. Navigate to the **Supabase dashboard**.
+2. Go to the **"Auth"** section.
+3. Enable the desired authentication providers (e.g., Google) by following the setup instructions.
+
+
 
 ### Environment Variables
 
