@@ -152,14 +152,14 @@ Replace your-supabase-url, your-supabase-anon-key, your-google-client-id, and yo
 
 Usage
 
-    Explore Cabins: Use the Cabin Gallery to browse available luxury cabins. Apply filters to find cabins that meet your needs based on the number of guests.
-    Booking: Select your desired dates and make a reservation directly through the website.
-    Account Management: Sign in using your Google account, and manage your bookings and personal profile through the Guest Area.
-    About: Visit the About Page to learn more about The Wild Oasis and its luxury offerings.
+   Explore Cabins: Use the Cabin Gallery to browse available luxury cabins. Apply filters to find cabins that meet your needs based on the number of guests.
+   Booking: Select your desired dates and make a reservation directly through the website.
+   Account Management: Sign in using your Google account, and manage your bookings and personal profile through the Guest Area.
+   About: Visit the About Page to learn more about The Wild Oasis and its luxury offerings.
 
 Technologies Used
    
-    Next.js: A React framework for server-side rendering and static site generation.
-    Tailwind CSS: A utility-first CSS framework for rapid UI development.
-    Supabase: An open-source Firebase alternative providing backend services like database and authentication.
-    Google Authentication: Secure and fast authentication using Google profiles.
+   Next.js: A React framework for server-side rendering and static site generation.
+   Tailwind CSS: A utility-first CSS framework for rapid UI development.
+   Supabase: An open-source Firebase alternative providing backend services like database and authentication.
+   Google Authentication: Secure and fast authentication using Google profiles.
