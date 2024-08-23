@@ -136,11 +136,11 @@ Supabase automatically creates a `Users` table when authentication is set up. Th
 
 Create a .env.local file in the root of your project with the following variables:
 
-    ```bash 
-    NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
-    NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
-    NEXT_PUBLIC_GOOGLE_CLIENT_ID=your-google-client-id
-    NEXT_PUBLIC_GOOGLE_CLIENT_SECRET=your-google-client-secret
+   ```bash 
+   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   NEXT_PUBLIC_GOOGLE_CLIENT_ID=your-google-client-id
+   NEXT_PUBLIC_GOOGLE_CLIENT_SECRET=your-google-client-secret
 
 Replace your-supabase-url, your-supabase-anon-key, your-google-client-id, and your-google-client-secret with your actual Supabase and Google credentials.
 
