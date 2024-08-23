@@ -16,9 +16,6 @@ Check out the live demo: [The Wild Oasis Website](https://the-wild-oasis-website
 - [Supabase Setup](#supabase-setup)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## Features
 
