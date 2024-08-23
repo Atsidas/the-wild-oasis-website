@@ -73,68 +73,68 @@ To use Supabase as the backend for this project, you need to set up the database
 
 Set up the following tables in your Supabase project:
 
- Bookings Table: Stores booking information.
-     id: bigint (Primary Key)
-     created_at: timestamp with time zone
-     startDate: timestamp without time zone
-     endDate: timestamp without time zone
-     numNights: smallint
-     numGuests: smallint
-     cabinPrice: real
-     extrasPrice: real
-     totalPrice: real
-     status: text
-     hasBreakfast: boolean
-     isPaid: boolean
-     observations: text
-     cabinId: bigint (Foreign Key to Cabins)
-     guestId: bigint (Foreign Key to Guests)
-
- Cabins Table: Stores information about the available cabins.
-     id: bigint (Primary Key)
-     created_at: timestamp with time zone
-     name: text
-     maxCapacity: smallint
-     regularPrice: smallint
-     discount: smallint
-     description: text
-     image: text (URL or path to the image)
-
- Guests Table: Stores information about guests.
-     id: bigint (Primary Key)
-     created_at: timestamp with time zone
-     fullName: text
-     email: text
-     nationalID: text
-     nationality: text
-     countryFlag: text (URL or path to the flag image)
-
- Settings Table: Stores application settings related to bookings.
-     id: bigint (Primary Key)
-     created_at: timestamp with time zone
-     minBookingLength: smallint
-     maxBookingLength: smallint
-     maxGuestsPerBooking: smallint
-     breakfastPrice: real
+    Bookings Table: Stores booking information.
+        id: bigint (Primary Key)
+        created_at: timestamp with time zone
+        startDate: timestamp without time zone
+        endDate: timestamp without time zone
+        numNights: smallint
+        numGuests: smallint
+        cabinPrice: real
+        extrasPrice: real
+        totalPrice: real
+        status: text
+        hasBreakfast: boolean
+        isPaid: boolean
+        observations: text
+        cabinId: bigint (Foreign Key to Cabins)
+        guestId: bigint (Foreign Key to Guests)
+   
+    Cabins Table: Stores information about the available cabins.
+        id: bigint (Primary Key)
+        created_at: timestamp with time zone
+        name: text
+        maxCapacity: smallint
+        regularPrice: smallint
+        discount: smallint
+        description: text
+        image: text (URL or path to the image)
+   
+    Guests Table: Stores information about guests.
+        id: bigint (Primary Key)
+        created_at: timestamp with time zone
+        fullName: text
+        email: text
+        nationalID: text
+        nationality: text
+        countryFlag: text (URL or path to the flag image)
+   
+    Settings Table: Stores application settings related to bookings.
+        id: bigint (Primary Key)
+        created_at: timestamp with time zone
+        minBookingLength: smallint
+        maxBookingLength: smallint
+        maxGuestsPerBooking: smallint
+        breakfastPrice: real
 
 3. Storage Buckets
 
 Create the following storage buckets in Supabase:
 
- avatars: For storing user profile pictures.
- cabin-images: For storing images of the cabins.
+    avatars: For storing user profile pictures.
+    cabin-images: For storing images of the cabins.
 
 4. Authentication
 
 Supabase automatically creates a Users table when authentication is set up. This table includes:
 
- Display Name
- Email
- Phone
- Provider
- Created
- Last Sign In
- User UID
+    Display Name
+    Email
+    Phone
+    Provider
+    Created
+    Last Sign In
+    User UID
 
 Enable the desired authentication providers (e.g., Google) in the Supabase dashboard under the "Auth" section.
 
@@ -152,14 +152,14 @@ Replace your-supabase-url, your-supabase-anon-key, your-google-client-id, and yo
 
 Usage
 
- Explore Cabins: Use the Cabin Gallery to browse available luxury cabins. Apply filters to find cabins that meet your needs based on the number of guests.
- Booking: Select your desired dates and make a reservation directly through the website.
- Account Management: Sign in using your Google account, and manage your bookings and personal profile through the Guest Area.
- About: Visit the About Page to learn more about The Wild Oasis and its luxury offerings.
+    Explore Cabins: Use the Cabin Gallery to browse available luxury cabins. Apply filters to find cabins that meet your needs based on the number of guests.
+    Booking: Select your desired dates and make a reservation directly through the website.
+    Account Management: Sign in using your Google account, and manage your bookings and personal profile through the Guest Area.
+    About: Visit the About Page to learn more about The Wild Oasis and its luxury offerings.
 
 Technologies Used
-
- Next.js: A React framework for server-side rendering and static site generation.
- Tailwind CSS: A utility-first CSS framework for rapid UI development.
- Supabase: An open-source Firebase alternative providing backend services like database and authentication.
- Google Authentication: Secure and fast authentication using Google profiles.
+   
+    Next.js: A React framework for server-side rendering and static site generation.
+    Tailwind CSS: A utility-first CSS framework for rapid UI development.
+    Supabase: An open-source Firebase alternative providing backend services like database and authentication.
+    Google Authentication: Secure and fast authentication using Google profiles.
