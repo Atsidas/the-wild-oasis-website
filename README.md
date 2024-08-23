@@ -163,13 +163,3 @@ Technologies Used
     Tailwind CSS: A utility-first CSS framework for rapid UI development.
     Supabase: An open-source Firebase alternative providing backend services like database and authentication.
     Google Authentication: Secure and fast authentication using Google profiles.
-
-Contributing
-
-Contributions are welcome! To contribute:
-
-    Fork the project
-    Create your feature branch (git checkout -b feature/YourFeature)
-    Commit your changes (git commit -m 'Add some feature')
-    Push to the branch (git push origin feature/YourFeature)
-    Open a pull request
