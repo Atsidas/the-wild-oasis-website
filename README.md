@@ -1,36 +1,175 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Wild Oasis Website
 
-## Getting Started
+## Description
 
-First, run the development server:
+The Wild Oasis Website is a modern and responsive web application for a luxury hotel specializing in luxury cabins. It allows users to explore available cabins, make reservations, and manage their bookings and profiles. Built using Next.js, styled with Tailwind CSS, and utilizing Supabase for backend services, this project provides a seamless experience for users looking to book a luxurious stay. The website is optimized for desktops and tablets, providing a user-friendly interface across these devices.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Live Demo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Check out the live demo: [The Wild Oasis Website](https://the-wild-oasis-website-by-antonis.vercel.app/)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Table of Contents
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [Features](#features)
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [Supabase Setup](#supabase-setup)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- **Cabin Booking System**: Users can choose the dates they want to book luxury cabins.
+- **Google Sign-In**: Users can easily sign in using their Google profiles for a quick and secure login experience.
+- **About Page**: Provides information about the luxury hotel and its offerings.
+- **Guest Area**: A dedicated section where users can view and manage their reservations.
+- **Profile Management**: Users can update and manage their profiles within the guest area.
+- **Cabin Gallery**: A page showcasing all available cabins with images and descriptions.
+- **Cabin Filter**: Users can filter cabins based on the number of guests to find the perfect fit for their stay.
+- **Responsive Design**: Optimized for desktop and tablet devices, providing a consistent and enjoyable user experience.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+To get a local copy up and running, follow these simple steps:
 
-## Deploy on Vercel
+1. Clone the repository
+   ```bash
+   git clone https://github.com/Atsidas/the-wild-oasis-website.git
+2. Navigate to the project directory:
+   ```bash 
+   cd the-wild-oasis-website
+3. Install dependencies
+   ```bash 
+   npm install
+   #or
+   yarn install
+4. Run the development server
+   ```bash
+   npm run dev
+   #or
+   yarn dev
+   #or
+   pnpm dev
+   #or
+   pnpm dev
+   #or
+   bun dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Open http://localhost:3000 with your browser to see the result.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You can start editing the page by modifying app/page.js. The page auto-updates as you edit the file.
+
+Supabase Setup
+
+To use Supabase as the backend for this project, you need to set up the database and authentication. Here are the steps to configure Supabase:
+1. Create a Supabase Account
+
+    Sign up at Supabase and create a new project.
+
+2. Database Tables
+
+Set up the following tables in your Supabase project:
+
+    Bookings Table: Stores booking information.
+        id: bigint (Primary Key)
+        created_at: timestamp with time zone
+        startDate: timestamp without time zone
+        endDate: timestamp without time zone
+        numNights: smallint
+        numGuests: smallint
+        cabinPrice: real
+        extrasPrice: real
+        totalPrice: real
+        status: text
+        hasBreakfast: boolean
+        isPaid: boolean
+        observations: text
+        cabinId: bigint (Foreign Key to Cabins)
+        guestId: bigint (Foreign Key to Guests)
+
+    Cabins Table: Stores information about the available cabins.
+        id: bigint (Primary Key)
+        created_at: timestamp with time zone
+        name: text
+        maxCapacity: smallint
+        regularPrice: smallint
+        discount: smallint
+        description: text
+        image: text (URL or path to the image)
+
+    Guests Table: Stores information about guests.
+        id: bigint (Primary Key)
+        created_at: timestamp with time zone
+        fullName: text
+        email: text
+        nationalID: text
+        nationality: text
+        countryFlag: text (URL or path to the flag image)
+
+    Settings Table: Stores application settings related to bookings.
+        id: bigint (Primary Key)
+        created_at: timestamp with time zone
+        minBookingLength: smallint
+        maxBookingLength: smallint
+        maxGuestsPerBooking: smallint
+        breakfastPrice: real
+
+3. Storage Buckets
+
+Create the following storage buckets in Supabase:
+
+    avatars: For storing user profile pictures.
+    cabin-images: For storing images of the cabins.
+
+4. Authentication
+
+Supabase automatically creates a Users table when authentication is set up. This table includes:
+
+    Display Name
+    Email
+    Phone
+    Provider
+    Created
+    Last Sign In
+    User UID
+
+Enable the desired authentication providers (e.g., Google) in the Supabase dashboard under the "Auth" section.
+
+5. Configure Environment Variables
+
+    Create a .env.local file in the root of your project with the following variables:
+
+    ```bash 
+    NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+    NEXT_PUBLIC_GOOGLE_CLIENT_ID=your-google-client-id
+    NEXT_PUBLIC_GOOGLE_CLIENT_SECRET=your-google-client-secret
+
+Replace your-supabase-url, your-supabase-anon-key, your-google-client-id, and your-google-client-secret with your actual Supabase and Google credentials.
+
+Usage
+
+    Explore Cabins: Use the Cabin Gallery to browse available luxury cabins. Apply filters to find cabins that meet your needs based on the number of guests.
+    Booking: Select your desired dates and make a reservation directly through the website.
+    Account Management: Sign in using your Google account, and manage your bookings and personal profile through the Guest Area.
+    About: Visit the About Page to learn more about The Wild Oasis and its luxury offerings.
+
+Technologies Used
+
+    Next.js: A React framework for server-side rendering and static site generation.
+    Tailwind CSS: A utility-first CSS framework for rapid UI development.
+    Supabase: An open-source Firebase alternative providing backend services like database and authentication.
+    Google Authentication: Secure and fast authentication using Google profiles.
+
+Contributing
+
+Contributions are welcome! To contribute:
+
+    Fork the project
+    Create your feature branch (git checkout -b feature/YourFeature)
+    Commit your changes (git commit -m 'Add some feature')
+    Push to the branch (git push origin feature/YourFeature)
+    Open a pull request
